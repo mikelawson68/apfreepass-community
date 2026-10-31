@@ -1,0 +1,357 @@
+/* apFreepass Base Styles */
+.apfreepass-login-form {
+    background: var(--wp-admin-theme-color-darker-10, #fff);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid var(--wp-admin-border-color, #ddd);
+}
+
+.apfreepass-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--wp-admin-border-color, #e1e1e1);
+}
+
+.apfreepass-tab-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--wp-admin-color-gray, #646970);
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: -2px;
+}
+
+.apfreepass-tab-btn:hover {
+    color: var(--wp-admin-theme-color, #0073aa);
+    background: var(--wp-admin-theme-color-darker-10, #f6f7f7);
+}
+
+.apfreepass-tab-btn.active {
+    color: var(--wp-admin-theme-color, #0073aa);
+    border-bottom-color: var(--wp-admin-theme-color, #0073aa);
+}
+
+.apfreepass-tab-btn .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.apfreepass-tab-panel {
+    display: none;
+    animation: fadeIn 0.2s ease;
+}
+
+.apfreepass-tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.apfreepass-auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.apfreepass-auth-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: var(--wp-admin-color-gray-900, #1d2327);
+    font-size: 14px;
+}
+
+.apfreepass-auth-form .form-control {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    border: 1px solid var(--wp-admin-border-color, #ddd);
+    border-radius: 6px;
+    background: var(--wp-admin-theme-color-darker-10, #fff);
+    color: var(--wp-admin-color-gray-900, #1d2327);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.apfreepass-auth-form .form-control:focus {
+    outline: none;
+    border-color: var(--wp-admin-theme-color, #0073aa);
+    box-shadow: 0 0 0 3px rgba(0,115,170,0.15);
+}
+
+.apfreepass-auth-form .form-control::placeholder {
+    color: var(--wp-admin-color-gray, #646970);
+}
+
+.apfreepass-auth-form .btn-block {
+    width: 100%;
+}
+
+.apfreepass-auth-form .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.apfreepass-auth-form .btn-primary {
+    background: var(--wp-admin-theme-color, #0073aa);
+    color: #fff;
+}
+
+.apfreepass-auth-form .btn-primary:hover:not(:disabled) {
+    background: var(--wp-admin-theme-color-darker-10, #005a87);
+}
+
+.apfreepass-auth-form .btn:disabled,
+.apfreepass-auth-form .btn.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.apfreepass-auth-form .btn-link {
+    background: transparent;
+    color: var(--wp-admin-theme-color, #0073aa);
+    padding: 8px 0;
+}
+
+.apfreepass-auth-form .btn-link:hover {
+    text-decoration: underline;
+}
+
+.apfreepass-auth-form .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.form-hint {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--wp-admin-color-gray, #646970);
+    line-height: 1.5;
+}
+
+.auth-message {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.auth-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.auth-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.auth-message.info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.auth-message .dashicons {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.apfreepass-auth-footer {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--wp-admin-border-color, #e1e1e1);
+    text-align: center;
+    font-size: 13px;
+    color: var(--wp-admin-color-gray, #646970);
+}
+
+.apfreepass-auth-footer a {
+    color: var(--wp-admin-theme-color, #0073aa);
+    text-decoration: none;
+}
+
+.apfreepass-auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.apfreepass-passkey-toggle {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--wp-admin-border-color, #e1e1e1);
+    text-align: center;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .apfreepass-login-form {
+        background: var(--wp-admin-theme-color-darker-10, #1d2327);
+        border-color: var(--wp-admin-border-color, #3c4348);
+    }
+
+    .apfreepass-auth-form .form-control {
+        background: var(--wp-admin-theme-color-darker-10, #1d2327);
+        border-color: var(--wp-admin-border-color, #3c4348);
+        color: var(--wp-admin-color-gray-900, #f0f0f1);
+    }
+
+    .apfreepass-tabs {
+        border-bottom-color: var(--wp-admin-border-color, #3c4348);
+    }
+
+    .apfreepass-tab-btn:hover {
+        background: var(--wp-admin-theme-color-darker-10, #32373c);
+    }
+
+    .apfreepass-auth-footer {
+        border-top-color: var(--wp-admin-border-color, #3c4348);
+    }
+
+    .apfreepass-passkey-toggle {
+        border-top-color: var(--wp-admin-border-color, #3c4348);
+    }
+}
+
+/* WordPress admin color scheme support */
+.wp-admin-theme-color-2 .apfreepass-auth-form .btn-primary {
+    background: #e87c22;
+}
+.wp-admin-theme-color-2 .apfreepass-auth-form .btn-primary:hover:not(:disabled) {
+    background: #d06d1e;
+}
+
+.wp-admin-theme-color-3 .apfreepass-auth-form .btn-primary {
+    background: #d54e21;
+}
+.wp-admin-theme-color-3 .apfreepass-auth-form .btn-primary:hover:not(:disabled) {
+    background: #b83e1a;
+}
+
+.wp-admin-theme-color-4 .apfreepass-auth-form .btn-primary {
+    background: #e14d43;
+}
+.wp-admin-theme-color-4 .apfreepass-auth-form .btn-primary:hover:not(:disabled) {
+    background: #c83e34;
+}
+
+.wp-admin-theme-color-5 .apfreepass-auth-form .btn-primary {
+    background: #2271b1;
+}
+.wp-admin-theme-color-5 .apfreepass-auth-form .btn-primary:hover:not(:disabled) {
+    background: #1d5e96;
+}
+
+.wp-admin-theme-color-6 .apfreepass-auth-form .btn-primary {
+    background: #46b450;
+}
+.wp-admin-theme-color-6 .apfreepass-auth-form .btn-primary:hover:not(:disabled) {
+    background: #3a9c42;
+}
+
+.wp-admin-theme-color-7 .apfreepass-auth-form .btn-primary {
+    background: #b43c87;
+}
+.wp-admin-theme-color-7 .apfreepass-auth-form .btn-primary:hover:not(:disabled) {
+    background: #963271;
+}
+
+.wp-admin-theme-color-8 .apfreepass-auth-form .btn-primary {
+    background: #f7832a;
+}
+.wp-admin-theme-color-8 .apfreepass-auth-form .btn-primary:hover:not(:disabled) {
+    background: #de6f22;
+}
+
+/* Loading spinner */
+.btn-loading {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-loading::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .apfreepass-login-form {
+        padding: 24px 20px;
+    }
+
+    .apfreepass-tab-btn {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .apfreepass-tab-btn .dashicons {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Auth error page */
+.apfreepass-error-container {
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 32px;
+    text-align: center;
+    background: var(--wp-admin-theme-color-darker-10, #fff);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid var(--wp-admin-border-color, #ddd);
+}
+
+.apfreepass-error-container h1 {
+    margin-top: 0;
+    color: #d63638;
+}
+
+.apfreepass-error-container p {
+    color: var(--wp-admin-color-gray, #646970);
+    margin-bottom: 24px;
+}
+
+.apfreepass-error-container .button {
+    padding: 12px 28px;
+    font-size: 15px;
+}
