@@ -1,25 +1,22 @@
-# apFreepass
+# apFreepass — email-link sign-in for WordPress
 
-Passwordless sign-in for existing WordPress accounts using email magic links, optional passkeys, and an optional SMS connector. Your site keeps its own accounts and authentication records.
+apFreepass lets existing WordPress users sign in with a one-time email link. This repository contains the **free email-link edition**, licensed GPL-2.0-or-later.
 
-## Install
+[Download the free plugin from artistproWP](https://artistprowp.com/apfreepass/) · [Explore paid passkeys, SMS, support and updates](https://artistprowp.com/apfreepass/#plans) · [Support](https://artistprowp.com/support/)
 
-- WordPress 6.4 or newer and PHP 8.0 or newer are required.
-- Download the free store edition from [artistproWP](https://artistprowp.com/apfreepass/), upload its ZIP in WordPress, and activate it.
-- Add the `[apfreepass_login]` shortcode to a page. Magic links use your site's WordPress mail service and sign in existing users; normal WordPress registration creates new accounts.
-- Enable passkeys in Settings > apFreepass if desired. Use HTTPS, sign in before registering a passkey, and keep a separate recovery method.
-- SMS sign-in requires a separately configured compatible connector and may incur provider charges. Shared phone numbers are not used to select an account.
+## Free and paid
 
-This repository contains the free community source without the store updater. The free store ZIP has a separate update channel; WordPress.org distribution, if approved, uses its own updates. Do not activate more than one edition at a time. Deactivate the free edition before uploading the paid edition and retain another administrator sign-in method during the change.
+- **Free:** email-link sign-in for existing accounts. Configure your own WordPress email delivery.
+- **Paid:** a separate apFreepass edition adds passkeys and SMS sign-in and includes one year of support and updates. SMS requires the free Twilio connector and your own Twilio account; Twilio may charge separately.
 
-## Support and paid edition
+Install one edition at a time. Before switching, back up your site, keep another administrator sign-in method available, deactivate the old edition and move its plugin folder out of the WordPress plugins directory. Preserve the WordPress database and user records.
 
-The free edition is GPL-2.0-or-later. A paid edition with support and paid-edition updates is available at [artistproWP](https://artistprowp.com/apfreepass/). Provider services such as SMS are separate.
+Older free releases included passkeys and SMS. Their GPL history remains available; the current free edition provides email-link sign-in only.
 
-## Privacy and security
+## Installation
 
-Sign-in challenge records, public passkey credentials, and authentication audit information are stored on the site. WordPress personal-data export and erasure tools support relevant apFreepass records. Review your privacy notice and keep WordPress and PHP current. Please report security issues privately via [artistproWP support](https://artistprowp.com/support/) rather than posting credentials or exploit details in a public issue.
+1. Download the ZIP from the product page and install it in WordPress.
+2. Configure reliable WordPress email delivery.
+3. Add `[apfreepass_login]` to a page. The user must already have a WordPress account.
 
-## License
-
-GPL-2.0-or-later; see [LICENSE.txt](LICENSE.txt). The bundled lbuchs/webauthn and Composer components include their MIT licenses in their respective vendor directories.
+Requires WordPress 6.4 or later and PHP 8.0 or later. See `readme.txt` for additional details.

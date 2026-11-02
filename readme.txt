@@ -1,43 +1,26 @@
 === apFreepass ===
 Contributors: artistpromusic
-Tags: authentication, passwordless, passkeys, login
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 0.2.4
+Stable tag: 0.3.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Sign in to existing WordPress accounts using email magic links and optional passkeys.
+Let existing WordPress users sign in with a one-time email link.
 
 == Description ==
 
-apFreepass provides a sign-in form for existing accounts. Add the [apfreepass_login] shortcode to a page. Email links are single-use and use your site's configured WordPress mail delivery. Passkeys are off by default; administrators can enable them in Settings > apFreepass. Users sign in first to add a passkey and can remove their own passkeys. Keep another sign-in method available for account recovery.
+apFreepass lets an existing WordPress user request a one-time sign-in link by email. It does not create accounts. Configure a reliable WordPress mail service before relying on it. Requests are rate limited, and the response does not reveal whether an account exists.
 
-SMS sign-in is optional and requires a separately configured compatible SMS connector. This plugin does not include an SMS service or transmit SMS by itself. Your chosen connector and provider handle any messages and may have their own terms and charges. Magic-link and SMS request limits require database advisory locks; if the database does not support them, those sign-in methods remain unavailable.
+This free edition includes email-link sign-in. Passkey and SMS sign-in are available separately in the paid apFreepass edition at https://artistprowp.com/apfreepass/. The paid edition is a separate installation and is not needed for email-link sign-in.
 
-The plugin stores sign-in challenge records, account IDs, email addresses associated with magic links, passkey public credentials, and authentication audit information in the site's database. The site owner is responsible for the privacy notice and for configuring their mail and optional SMS providers. No commercial license or artistpro account is required. WordPress Tools > Export Personal Data can export apFreepass records, and Tools > Erase Personal Data can remove them; removing passkeys makes them unusable. Process requests before deleting the related WordPress account so its other sign-in records can be identified. This does not remove records held by mail or SMS providers. Expired sign-in challenges are removed after 30 days by a daily scheduled task, up to 500 per challenge type each day. Passkeys and the sign-in audit are not removed by that task.
-
-This package includes the lbuchs/webauthn library by Lukas Buchs and contributors under the MIT license; its license is included in vendor/lbuchs/webauthn/LICENSE. Composer's autoload files include their MIT license in vendor/composer/LICENSE.
+Sign-in records are stored in the WordPress database. Privacy export and erasure tools support relevant sign-in records, including data retained from an earlier edition. Expired challenges are cleaned up by WordPress scheduled tasks. Database advisory locks are required; requests fail safely if locks cannot be obtained.
 
 == Installation ==
 
-If an older apFreepass edition is installed, back up and move its plugin folder out of the plugins directory before activating this edition. Keep the site database and user records. Upload and activate the plugin on an individual WordPress site. On multisite, activate it separately for each site; network-wide activation is not supported. Add [apfreepass_login] to a page. Configure reliable WordPress mail delivery before using magic links. To use passkeys, enable them in Settings > apFreepass and serve the site over HTTPS.
+1. Back up the site and make sure an administrator has another working login method.
+2. Install and activate apFreepass on an individual WordPress site. Network-wide activation is not supported.
+3. Place [apfreepass_login] on a page and configure WordPress email delivery.
 
-== Frequently Asked Questions ==
-
-= Does a magic link create an account? =
-
-No. It signs in an existing account. Registration is managed by the site's normal registration settings.
-
-= What happens if a passkey is lost? =
-
-Use another available sign-in method, such as an email magic link, to sign in and remove the lost passkey. Keep a working recovery method before relying on passkeys.
-
-== Changelog ==
-
-= 0.2.4 =
-* Preserve the WordPress sign-in destination when moving to the paid edition.
-
-= 0.2.3 =
-* Prepare the community package with magic links and optional passkeys.
+Do not install the free and paid editions together. Before changing editions, back up and deactivate the existing edition; preserve the database and user records. Older installations that used passkeys or SMS must keep another working login method before changing to the email-only free edition.
